@@ -7,6 +7,8 @@
         <option value="$PROJECT_DIR$/order-service-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/user_service-provider/pom.xml" />
         <option value="$PROJECT_DIR$/use_api/pom.xml" />
+        <option value="$PROJECT_DIR$/boot-user-service-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/boot-order-consumer/pom.xml" />
       </list>
     </option>
   </component>
