@@ -15,7 +15,7 @@
 	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"></dubbo:registry>
 
 <!--	声明需要调用的远程服务接口，生成远程服务代理-->
-	<dubbo:reference interface="service.UserService" id="userService"></dubbo:reference>
+	<dubbo:reference interface="service.UserService" id="userService" version="2.0.0" stub="service.impl.UserServiceStub"></dubbo:reference>
 
 	<context:component-scan base-package="service.impl"></context:component-scan>
 	<dubbo:monitor protocol="registry"></dubbo:monitor>

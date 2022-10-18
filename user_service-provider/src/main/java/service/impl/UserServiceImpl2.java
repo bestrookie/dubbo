@@ -11,10 +11,10 @@ import java.util.List;
  * @version 1.0
  * @date 2022/10/16 21:57
  */
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl2 implements UserService {
     @Override
     public List<UserAddress> getUserAddressList(String userId) {
-        System.out.println("UserServiceImpl-----old");
+        System.out.println("UserServiceImpl-----new");
         UserAddress addressOne = new UserAddress(1,"山东省青岛市","1","2","3","1");
         UserAddress addressTwo = new UserAddress(2,"山东省青岛市李沧区","2","3","4","2");
         return Arrays.asList(addressOne,addressTwo);

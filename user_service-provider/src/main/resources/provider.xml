@@ -19,10 +19,15 @@
 
 	<!-- 4、暴露服务   ref：指向服务的真正的实现对象 -->
 	<dubbo:service interface="service.UserService"
-				   ref="userServiceImpl">
+				   ref="userServiceImpl01" version="1.0.0">
 	</dubbo:service>
 	<!-- 服务的实现 -->
-	<bean id="userServiceImpl" class="service.impl.UserServiceImpl"></bean>
+	<bean id="userServiceImpl01" class="service.impl.UserServiceImpl"></bean>
+
+	<dubbo:service interface="service.UserService"
+				   ref="userServiceImpl02" version="2.0.0">
+	</dubbo:service>
+	<bean id="userServiceImpl02" class="service.impl.UserServiceImpl2"></bean>
 
 	<context:component-scan base-package="service.impl"></context:component-scan>
 	<dubbo:monitor protocol="registry"></dubbo:monitor>

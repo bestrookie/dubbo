@@ -18,12 +18,13 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     UserService userService;
     @Override
-    public void initOrder(String userId) {
+    public List<UserAddress> initOrder(String userId) {
         System.out.println("userId: " + userId);
         List<UserAddress> list = userService.getUserAddressList(userId);
         for (UserAddress address : list) {
             System.out.println(address.toString());
         }
 
+        return list;
     }
 }
