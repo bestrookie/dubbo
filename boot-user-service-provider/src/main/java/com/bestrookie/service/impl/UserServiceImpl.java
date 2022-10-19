@@ -1,6 +1,7 @@
 package com.bestrookie.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import dto.UserAddress;
 import org.springframework.stereotype.Component;
 import service.UserService;
@@ -16,10 +17,14 @@ import java.util.List;
 @Service
 @Component
 public class UserServiceImpl implements UserService {
+    @HystrixCommand
     @Override
     public List<UserAddress> getUserAddressList(String userId) {
         UserAddress addressOne = new UserAddress(1,"山东省青岛市","1","2","3","1");
         UserAddress addressTwo = new UserAddress(2,"山东省青岛市李沧区","2","3","4","2");
+        if (Math.random() > 0.5) {
+            throw new RuntimeException();
+        }
         return Arrays.asList(addressOne,addressTwo);
     }
 }
