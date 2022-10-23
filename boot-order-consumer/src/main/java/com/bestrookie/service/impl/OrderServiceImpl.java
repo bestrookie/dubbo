@@ -1,12 +1,15 @@
 package com.bestrookie.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import dto.UserAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.OrderService;
 import service.UserService;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,6 +21,7 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
     @Reference
     UserService userService;
+    @HystrixCommand(fallbackMethod = "hello")
     @Override
     public List<UserAddress> initOrder(String userId) {
         System.out.println("userId: " + userId);
@@ -27,5 +31,9 @@ public class OrderServiceImpl implements OrderService {
         }
         return list;
 
+    }
+
+    public List<UserAddress> hello(String userId){
+        return Collections.singletonList(new UserAddress(10, "hystrix回调", "1", "1", "1", "1"));
     }
 }
