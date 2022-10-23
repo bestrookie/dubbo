@@ -11,6 +11,7 @@
         <module name="boot-order-consumer" />
         <module name="boot-user-service-provider" />
         <module name="boot-user-service-provider (2)" />
+        <module name="dubbo-simulate" />
         <module name="order-service-consumer" />
         <module name="boot-user-service-provider (1)" />
         <module name="user_service-provider" />
